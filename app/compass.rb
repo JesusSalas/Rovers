@@ -20,12 +20,9 @@ class Compass
   end
 
   def move
-    to_move = {"N" => @y+1, "W" => @x-1, "S" => @y-1, "E" => @x+1}
-
-    if (@orientation == "N" or @orientation == "S")
-      @y = to_move[@orientation]
-    elsif (@orientation == "E" or @orientation == "W")
-      @x = to_move[@orientation]
-    end
+    move_y = {"N" => @y+1, "W" => @y, "S" => @y-1, "E" => @y}
+    move_x = {"N" => @x, "W" => @x-1, "S" => @x, "E" => @x+1}
+    @y = move_y[@orientation]
+    @x = move_x[@orientation]
   end
 end
